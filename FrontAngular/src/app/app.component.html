@@ -1,0 +1,121 @@
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Specie</th>
+          <th scope="col">Breed</th>
+            <th scope="col">Height</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Treatment</th>
+            <th scope="col">Excluir</th>
+            <th scope="col">Editar</th>            
+            <th scope="col"><i (click)="onOpenModal(null,'add')" class="bi bi-plus-square"></i></th>            
+        </thead>
+        <tbody id="data-set">
+          <tr *ngFor="let animal of animals">
+              <td>${animal.name}</td>
+              <td>${animal.specie}</td>
+              <td>${animal.breed}</td>
+              <td>${animal.height}</td>
+              <td>${animal.peso}</td>
+              <td>${animal.treatment}</td>
+              <td>><i class="bi bi-pencil-fill" (click)="onDeleteAnimal(deleteAnimal?.id)"></i></td>
+              <td>><i class="bi bi-x" (click)="onOpenModal(animal,'update')"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      
+      <!--ADD ANIMAL-->
+      <div class="modal fade" id="addAnimal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add Animal</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form #addForm="ngForm" (ngSubmit)="onAddAnimal(addForm)">
+                <div class="mb-3">
+                  <label for="nameAnimal" class="form-label">Name</label>
+                  <input type="text" class="form-control" ngModel name="name">
+                </div>
+                <div class="mb-3">
+                  <label for="specieAnimal" class="form-label">Specie</label>
+                  <input type="text" class="form-control" ngModel name="specie">
+                </div>
+                <div class="mb-3">
+                  <label for="breedAnimal" class="form-label">Breed</label>
+                  <input type="text" class="form-control" ngModel name="breed">
+                </div>
+                <div class="mb-3">
+                  <label for="heightAnimal" class="form-label">Height</label>
+                  <input type="text" class="form-control" ngModel name="height">
+                </div>
+                <div class="mb-3">
+                  <label for="pesoAnimal" class="form-label">Weight</label>
+                  <input type="text" class="form-control" ngModel name="peso">
+                </div>
+                <div class="mb-3">
+                  <label for="treatmentAnimal" class="form-label">Treatment</label>
+                  <input type="text" class="form-control" ngModel name="treatment">
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="addAnimalForm" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" onclick="postAnimals()">Add animal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--UPDATE ANIMAL-->
+      <div class="modal fade" id="updateAnimal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Update Animal</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form #editForm="ngForm">
+                <div class="mb-3">
+                  <label for="nameAnimal" class="form-label">Name</label>
+                  <input type="text" class="form-control" ngModel="{{editAnimal?.name}}" id="name">
+                </div>
+                <div class="mb-3">
+                  <label for="specieAnimal" class="form-label">Specie</label>
+                  <input type="text" class="form-control" ngModel="{{editAnimal?.specie}}" id="specieAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="breedAnimal" class="form-label">Breed</label>
+                  <input type="text" class="form-control" ngModel="{{editAnimal?.breed}}" id="breedAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="heightAnimal" class="form-label">Height</label>
+                  <input type="text" class="form-control" ngModel="{{editAnimal?.height}}" id="heightAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="pesoAnimal" class="form-label">Weight</label>
+                  <input type="text" class="form-control" ngModel="{{editAnimal?.peso}}" id="pesoAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="treatmentAnimal" class="form-label">Treatment</label>
+                  <input type="text" class="form-control" ngModel="{{editAnimal?.treatment}}" id="treatmentAnimal">
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="onUpdateAnimal(editForm.value)" id="putAnimal"  class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

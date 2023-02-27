@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>PetShop</title>
+</head>
+<body onload="getAnimals()">    
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Specie</th>
+          <th scope="col">Breed</th>
+            <th scope="col">Height</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Treatment</th>
+            <th scope="col">Excluir</th>
+            <th scope="col">Editar</th>            
+            <th scope="col"><i class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#addAnimal"></i></th>            
+        </thead>
+        <tbody id="data-set">
+          
+        </tbody>
+      </table>
+    </div>
+      
+      <!--ADD ANIMAL-->
+      <div class="modal fade" id="addAnimal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add Animal</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="nameAnimal" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="nameAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="specieAnimal" class="form-label">Specie</label>
+                  <input type="text" class="form-control" id="specieAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="breedAnimal" class="form-label">Breed</label>
+                  <input type="text" class="form-control" id="breedAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="heightAnimal" class="form-label">Height</label>
+                  <input type="text" class="form-control" id="heightAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="pesoAnimal" class="form-label">Weight</label>
+                  <input type="text" class="form-control" id="pesoAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="treatmentAnimal" class="form-label">Treatment</label>
+                  <input type="text" class="form-control" id="treatmentAnimal">
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" onclick="postAnimals()">Add animal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--UPDATE ANIMAL-->
+      <div class="modal fade" id="updateAnimal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Update Animal</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="nameAnimal" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="nameAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="specieAnimal" class="form-label">Specie</label>
+                  <input type="text" class="form-control" id="specieAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="breedAnimal" class="form-label">Breed</label>
+                  <input type="text" class="form-control" id="breedAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="heightAnimal" class="form-label">Height</label>
+                  <input type="text" class="form-control" id="heightAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="pesoAnimal" class="form-label">Weight</label>
+                  <input type="text" class="form-control" id="pesoAnimal">
+                </div>
+                <div class="mb-3">
+                  <label for="treatmentAnimal" class="form-label">Treatment</label>
+                  <input type="text" class="form-control" id="treatmentAnimal">
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="putAnimal"  class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
